@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block body %}
+<div class="container mt-3"></div>
+<div class ="row">
+<div class="col-md-4"></div>
+
+<div class="col-md-4 jumbotron">
+<h4 class="text-center"> Login Page</h4>
+<br>
+{% with messages=get_flashed_messages(with_categories=true)%}
+{% if messages %}
+{% for category,message in messages %}
+<div class="alert alert-{{category}} alert-dismisiible fade show" role="alert">
+    {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<form action='\login' method='POST' >
+    <div class="form-group">
+        <label for="email" class="form-label">Email </label>
+        <input type="email" class="form-control" id="email"  name="email" required">
+    </div>
+    <div class="row g-3 align-items-center">
+        <label for="password" class="col-form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+        
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+<br>
+Not a user<a href="/signup"> SignUp</a>
+</div>
+<div class="col-md-4"></div>
+
+</div>
+</div>
+</div>
+
+{% endblock body %}

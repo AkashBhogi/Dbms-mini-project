@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Library Room
+{% endblock title %}
+
+{% block body %}
+
+    {% with messages=get_flashed_messages(with_categories=true)%}
+{% if messages %}
+{% for category,message in messages %}
+<div class="alert alert-{{category}} alert-dismisiible fade show" role="alert">
+    {{message}}
+    
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+{% endblock body %}
+
+
+
+
